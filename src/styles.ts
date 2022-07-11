@@ -1,5 +1,20 @@
 import styled from 'styled-components'
 
+
+//  ________________________________________
+//        AddItemButtonProps Interface
+//  ________________________________________
+
+interface AddItemButtonProps {
+    dark ?: boolean
+}
+
+//  ________________________________________
+
+
+
+
+
 //  ________________________________________
 //        Styles for App
 //  ________________________________________
@@ -52,9 +67,45 @@ export const CardContainer = styled.div`
     cursor: pointer;
     margin-bottom: 0.5rem;
     padding: 0.5rem 1rem;
-    ,ax-width: 300px;
+    max-width: 300px;
     border-radius: 3px;
     box-shadow: #091e4240 0px 1px 0px 0px;
+`
+
+//  ________________________________________
+
+
+//  ________________________________________
+//        Styles for the Form
+//  ________________________________________
+
+export const NewItemFormContainer = styled.div`
+    max-width: 300px;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-item: flex-start;
+`
+
+//  ________________________________________
+
+
+//  ________________________________________
+/*           Style for Inputs            */
+//  _____________________________________/
+
+
+//  ________________________________________
+//        Style for NewItemInput
+//  ________________________________________
+
+export const NewItemInput= styled.input<AddItemButtonProps>`
+    border-radius: 3px;
+    border: none;
+    box-shadow: #091e4240 0px 1px 0px 0px;
+    margin-bottom: 0.5rem;
+    padding: 0.5rem 1rem;
+    width: 100%;
 `
 
 //  ________________________________________
@@ -64,6 +115,51 @@ export const CardContainer = styled.div`
 
 
 
+
+//  ________________________________________
+/*            Style for Buttons           */
+//  _____________________________________/
+
+
+//  ________________________________________
+//        Style for AddItemButton
+//  ________________________________________
+
+export const AddItemButton = styled.button<AddItemButtonProps>`
+    background-color: #ffffff3d;
+    border-radius: 3px;
+    border: none;
+    color: ${props => (props.dark ? "#000" : "#fff")};
+    cursor: pointer;
+    max-width: 300px;
+    padding: 10px 12px;
+    text-align: left;
+    transition: background 85ms ease-in;
+    width: 100%;
+    &:hover {
+        background-color: #ffffff52;
+    }
+`
+
+//  ________________________________________
+
+
+
+//  ________________________________________
+//        Style for AddItemButton
+//  ________________________________________
+
+export const NewItemButton = styled.button`
+    background-color: #5aac44;
+    border-radius: 3px;
+    border: none;
+    box-shadow: none;
+    color: #fff;
+    padding: 6px 12px;
+    text-align: center;
+`
+
+//  ________________________________________
 
 
 
