@@ -14,6 +14,20 @@ interface AddItemButtonProps {
 
 
 
+//  ________________________________________
+//        DragPreviewConatinerProps Interface
+//  ________________________________________
+interface DragPreviewContainerProps{
+    isHidden?: boolean
+}
+
+
+//  ________________________________________
+
+
+
+
+
 
 //  ________________________________________
 //        Styles for App
@@ -32,13 +46,34 @@ export const AppContainer = styled.div`
 
 
 
+//  ________________________________________
+//        Styles DragPreviewContainer
+//  ________________________________________
+
+export const DragPreviewContainer = styled.div<DragPreviewContainerProps>`
+   opacity: ${props => (props.isHidden ? 0.3 : 1)};
+`
+
+//  ________________________________________
+
+
 
 
 //  ________________________________________
 //        Styles for Columns
 //  ________________________________________
+export const CustomDragLayerContainer = styled.div`
+    height: 100%;
+    left 0;
+    pointer-events: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 100;
+`
 
-export const ColumnContainer = styled.div`
+
+
+export const ColumnContainer = styled(DragPreviewContainer)`
     background-color: #ebecf0;
     width: 300px;
     min-height: 40px;
@@ -73,6 +108,8 @@ export const CardContainer = styled.div`
 `
 
 //  ________________________________________
+
+
 
 
 //  ________________________________________
