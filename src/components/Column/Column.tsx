@@ -4,6 +4,7 @@ import { AddNewItem } from "../AddNewItem/AddNewItem"
 import { useAppState } from "../../AppStateContext"
 import { Card } from "../Card/Card"
 import { useItemDrag } from "../../useItemDrag"
+import { DragItem } from "../../DragItem"
 import { useDrop } from "react-dnd"
 
 
@@ -12,11 +13,12 @@ interface ColumnProps {
     text: string
     index: number
     id: string
+    isPreview?: boolean
 }
 
 
 // Column component
-export const Column = ({ text, index,id }: ColumnProps) => {
+export const Column = ({ text, index,id, isPreview }: ColumnProps) => {
     const [, drop] = useDrop({
         accept: "COLUMN",
             hover(item: DragItem) {
@@ -38,7 +40,11 @@ export const Column = ({ text, index,id }: ColumnProps) => {
     drag(drop(ref))
 
     return (
-        <ColumnContainer ref={ref} isHidden={isHidden(state.draggedItem, "COLUMN", id)}>
+        <ColumnContainer
+            isPreview={isPreview} 
+            ref={ref} 
+            isHidden={isHidden(state.draggedItem, "COLUMN", id)}
+        >
             <ColumnTitle>{text}</ColumnTitle>
             {state.lists[index].tasks.map(task => (
                 <Card text={task.text} key={task.id} />
