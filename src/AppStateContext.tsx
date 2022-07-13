@@ -22,12 +22,12 @@ interface List {
 
 export interface AppState {
     lists: List[]
+    draggedItem: DragItem | undefined;
 }
 
 interface AppStateContextProps {
     state: AppState
     dispatch: React.Dispatch<Action>
-    draggedItem?: DragItem | undefined
 }
 
 // _____________________________________________
@@ -40,7 +40,7 @@ interface AppStateContextProps {
 //               Createing App State
 // _____________________________________________
 const appData: AppState = {
-    
+    draggedItem: undefined,
     lists: [
         {
             id: "0",
